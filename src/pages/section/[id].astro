@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import Comments from '../../components/Comments';
+
+export async function getStaticPaths() {
+  const sections = await getCollection('sections');
+  return sections.map(section => ({
+    params: { id: section.id },
+    props: { section },
+  }));
+}
+
+const { section } = Astro.props;
+const { Content } = await section.render();
+---
+
+<Layout title={`Section ${section.id} - ${section.data.title}`}>
+  <div class="prose prose-lg max-w-4xl mx-auto prose-invert">
+    <h1 class="font-saira font-bold uppercase tracking-widest text-[#D9E8F7]">Section {section.id} - {section.data.title}</h1>
+    <div class="font-neuton text-body">
+      <Content />
+    </div>
+    <Comments client:load sectionId={section.id} />
+  </div>
+</Layout>

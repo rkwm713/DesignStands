@@ -1,0 +1,42 @@
+---
+const sections = [
+  { id: 1, title: "Map Symbols and Underground Tagging" },
+  { id: 2, title: "Primary - Overhead" },
+  { id: 3, title: "Secondary - Overhead" },
+  { id: 4, title: "Services - Overhead and Underground" },
+  { id: 5, title: "Guying and Anchoring" },
+  { id: 6, title: "Poles and Arms" },
+  { id: 7, title: "Transformers - Poles, Padmounted, Pads" },
+  { id: 8, title: "Power Capacitors and Regulators" },
+  { id: 9, title: "Switches, Reclosers, and Sectionalizers" },
+  { id: 10, title: "Risers, Primary, Secondary - Underground" },
+  { id: 11, title: "Cable Termination" },
+  { id: 12, title: "Outdoor Lighting" },
+  { id: 13, title: "Clearance and Separation" },
+  { id: 14, title: "Sag" },
+  { id: 15, title: "Fusing" },
+  { id: 17, title: "Joint Use and Third Party Attachements" },
+  { id: 18, title: "Assembly Details" },
+  { id: 19, title: "Raptor Safe" },
+  { id: 20, title: "Distribution Self-Supporting Poles" },
+];
+---
+
+<nav class="w-64 min-h-screen bg-gray-800 text-white p-4">
+  <h1 class="text-xl font-bold mb-4 font-saira uppercase tracking-widest">Design Standards</h1>
+  <ul class="space-y-2">
+    {
+      sections.map((section) => (
+        <li>
+          <a
+            href={`/section/${section.id}`}
+            class="block hover:bg-gray-700 p-2 rounded"
+          >
+            <div class="font-saira font-bold uppercase tracking-widest text-sm">Section {section.id}</div>
+            <div class="font-saira font-bold uppercase tracking-widest text-sm">{section.title}</div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
